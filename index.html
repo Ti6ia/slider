@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slider</title>
+    <style>
+
+        .container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .slide{
+            max-width: 600px;
+            max-height: 600px;
+            display: none;
+        }
+        .show{
+            display: block;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="slide">
+            <img src="https://www.displayofficinadellosport.it/img/Footwear/Nike/mercurial_vapor/vapor01.png" alt="pic1">
+        </div>
+        <div class="slide">
+            <img src="https://www.displayofficinadellosport.it/img/Footwear/Nike/mercurial_vapor/vapor02.png" alt="pic2">
+        </div>
+        <div class="slide">
+            <img src="https://www.displayofficinadellosport.it/img/Footwear/Nike/mercurial_vapor/vapor03.png" alt="pic3">
+        </div>
+    </div>
+
+    <script>
+        const slides = document.querySelectorAll('.slide');
+        console.log(slides);
+
+        let i = 0;
+        function slider(){
+            if(i < slides.length){
+                if(i == 0){slides[i].style.display = "none";}
+                else{slides[i-1].style.display = "none";}
+                slides[i].style.display = "block";
+                i++;
+            }else{
+                slides[i-1].style.display = "none";
+                i = 0;
+                slides[i].style.display = "block";
+                i++;
+            }
+            
+
+        }
+
+        setInterval(slider, 2000);
+
+    </script>
+</body>
+</html>
